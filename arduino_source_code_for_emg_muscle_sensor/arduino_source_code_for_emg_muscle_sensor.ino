@@ -8,28 +8,32 @@ Servo ring;
 Servo pinky;
 
 // threshold to trigger servo activation
-const int threshValue = 100;
+const int threshValue = 400;
 
 // servo position
 int pos = 0;
 
 void setup()
 {
+  Serial.begin(9600);
   // Link pins to servos
-  thumb.attach(1);
-  index.attach(2);
-  middle.attach(3);
-  ring.attach(4);
-  pinky.attach(5);
+  thumb.attach(13);
+  index.attach(12);
+  middle.attach(11);
+  ring.attach(10);
+  pinky.attach(9);
+
+  pinMode(8, INPUT_PULLUP);
 }
 
 void loop()
 {
   // read in muscle sensor value
   int value = analogRead(A3);
+  Serial.println(value);
 
   // if less than threshhold value, reset (or relax hand)
-  if(value < threshValue)
+  if(value < threshValue && digitalRead(8) != 0)
   {
     pos = 0;
     thumb.write(pos);
@@ -42,8 +46,8 @@ void loop()
   // if greater than threshold value, contract hand
   else
   {
-    
-    pos = 100;
+    Serial.println("Servos Active!");
+    pos = 180;
     thumb.write(pos);
     index.write(pos);
     middle.write(pos);
