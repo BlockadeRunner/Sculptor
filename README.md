@@ -1,5 +1,5 @@
 # Sculptor
-_2024 &amp;hacks hackathon project_
+_2024 &amp;hacks hackathon winner!_
 
 ![image](https://github.com/user-attachments/assets/6e77fa13-e734-4681-8882-c86b6814c2d8)
 ![image](https://github.com/user-attachments/assets/7c5fbbf6-4d19-4500-8c0c-66a43efc016e)
